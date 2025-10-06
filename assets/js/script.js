@@ -252,7 +252,7 @@ crear.addEventListener("click", function(e) {
             </div>
             <div class="content-grid">
                 <div class="section__left-column">
-                    <img src="{{media url=wysiwyg/${fotocuadrada_1.value}}}" alt="Imagen que muestra que una persona esta utilizando la depiladora láser Bye Bye IPL">
+                    <img src="{{media url=wysiwyg/${fotocuadrada_1.value}}}" alt="Imagen que muestra ${nombreproducto.value}">
                 </div>
                 <div class="section__right-column">
                     <p class="text">${listaVinetaHTML}</p>

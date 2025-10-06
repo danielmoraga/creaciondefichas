@@ -33,13 +33,48 @@ let parrafo_vineta = document.getElementById("parrafo-vineta")
 
 
 
+
 let crear = document.getElementById("crear")
 let salida = document.getElementById("salida")
 let limpiar = document.getElementById("limpiar")
+let salida_abajo = document.getElementById("salida-abajo")
 
 
 crear.addEventListener("click", function(e) {
-    console.log(titulo_h2_1.value)
+      e.preventDefault();
+
+       // Seleccionar todos los inputs y textareas dentro del formulario
+    const form = document.getElementById("formulario");
+    const campos = form.querySelectorAll("input, textarea");
+
+    // Validar que todos los campos tengan algún valor
+    for (let campo of campos) {
+        if (campo.value.trim() === "") {
+            alert("Por favor, llena todos los campos antes de continuar.");
+            campo.focus(); // opcional, para llevar al primer campo vacío
+            return; // detenemos la ejecución del botón
+        }
+    }
+
+        // Obtener valores (esto es solo un ejemplo, asegúrate de tener los otros campos también)
+    const parrafoVinetaRaw = document.getElementById("parrafo-vineta").value;
+
+    // Separar por punto y limpiar cada ítem
+    const itemsVineta = parrafoVinetaRaw
+        .split(".")                            // separar por punto
+        .map(item => item.trim())             // quitar espacios alrededor
+        .filter(item => item.length > 0);     // quitar vacíos
+
+    // Crear la lista en HTML si hay elementos
+    let listaVinetaHTML = "";
+    if (itemsVineta.length > 0) {
+        listaVinetaHTML = "<ul>\n";
+        itemsVineta.forEach(item => {
+            listaVinetaHTML += `  <li>${item}</li>\n`;
+        });
+        listaVinetaHTML += "</ul>\n";
+    }
+
     let html = `
 <body>
     <main id="tabs_product-description">
@@ -220,7 +255,7 @@ crear.addEventListener("click", function(e) {
                     <img src="{{media url=wysiwyg/${fotocuadrada_1.value}}}" alt="Imagen que muestra que una persona esta utilizando la depiladora láser Bye Bye IPL">
                 </div>
                 <div class="section__right-column">
-                    <p class="text">${parrafo_vineta.value}</p>
+                    <p class="text">${listaVinetaHTML}</p>
                 </div>
             </div>
             <div class="images-grid">
@@ -258,14 +293,11 @@ crear.addEventListener("click", function(e) {
 </body>`;
 
 
-limpiar.addEventListener("click", function(e){
-
-    salida =``
-})
-
 
     salida.textContent = html;
-    e.preventDefault();
+    salida_abajo.innerHTML=html
+    salida.style.display = "none";
+  
 });
 
 const copiarTexto = async () => {
@@ -278,3 +310,21 @@ const copiarTexto = async () => {
         alert('Error al copiar el texto.');
     }
 };
+
+
+document.getElementById("limpiar").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Limpiar todos los textareas dentro del formulario
+    const form = document.getElementById("formulario");
+    const textareas = form.querySelectorAll("textarea");
+    textareas.forEach(textarea => textarea.value = "");
+
+    // Limpiar los divs de salida
+    document.getElementById("salida").textContent = "";
+    document.getElementById("salida-abajo").innerHTML = "";
+
+    // Mostrar el div de salida por si estaba oculto
+    document.getElementById("salida").style.display = "block";
+});
+

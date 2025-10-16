@@ -113,7 +113,7 @@ crear.addEventListener("click", function(e) {
                                 </g>
                             </svg>
                         </div>
-                        <h3 class="feature-title">ç</h3>
+                        <h3 class="feature-title">${titulo_h3_2.value}</h3>
                         <p class="feature-text_desktop">${parrafo_H3_2.value}</p>
                         <p class="feature-text_mobile">${parrafo_H3_2.value}</p>
                     </div>
@@ -133,7 +133,7 @@ crear.addEventListener("click", function(e) {
                                 </g>
                             </svg>
                         </div>
-                        <h3 class="feature-title">${parrafo_H3_3.value}</h3>
+                        <h3 class="feature-title">${titulo_h3_3.value}</h3>
                         <p class="feature-text_desktop">${parrafo_H3_3.value}</p>
                         <p class="feature-text_mobile">${parrafo_H3_3.value}</p>
                     </div>
@@ -148,8 +148,8 @@ crear.addEventListener("click", function(e) {
         <!-- Tercera sección - BENEFITS -->
         <section id="section-benefits">
             <div class="header">
-                <h2 class="title">${tituloh2_3.value}</h2>
-                <p class="text">${parrafo_H2_3.value}</p>
+                <h2 class="title">${tituloh2_2.value}</h2>
+                <p class="text">${parrafo_H2_2.value}</p>
                 <picture class="main-image">
                     <source media="(max-width: 480px)" srcset="{{media url=wysiwyg/${fotohorizontal_1.value}}}">
                     <source media="(max-width: 768px)" srcset="{{media url=wysiwyg/${fotohorizontal_1.value}}}">
@@ -238,12 +238,6 @@ crear.addEventListener("click", function(e) {
                 <source media="(max-width: 768px)" srcset="{{media url=wysiwyg/${fotohorizontal_2.value}}}">
                 <img src="{{media url=wysiwyg/${fotohorizontal_2.value}}}" alt="${nombreproducto.value}">
             </picture>
-            <h2 class="title">${tituloh2_5.value}</h2>
-            <picture class="main-image">
-                <source media="(max-width: 480px)" srcset="{{media url=wysiwyg/${fotohorizontal_3.value}}}">
-                <source media="(max-width: 768px)" srcset="{{media url=wysiwyg/${fotohorizontal_3.value}}}">
-                <img src="{{media url=wysiwyg/${fotohorizontal_3.value}}}" alt="${nombreproducto.value}">
-            </picture>
         </section>
         <!-- Quinta sección - ADDITIONAL INFORMATION -->
         <section id="section-additional-info">
@@ -267,12 +261,12 @@ crear.addEventListener("click", function(e) {
                 </div>
             </div>
         </section>
-        <!-- ADD TO CART -->
+    <!-- ADD TO CART -->
         <div id="section-add-to-cart">
             <div class="bottom-bar">
                 <div class="content">
                     <div class="title-row">
-                        <h3 class="title__bottom-bar">${nombreproducto.value}"</h3>
+                        <h3 class="title__bottom-bar">${nombreproducto.value}</h3>
                     </div>
                     <div class="product-info">
                         <div class="price-info">
